@@ -11,7 +11,9 @@ class Play extends Phaser.Scene {
 
         // load images/tile sprites
         this.load.image('rocket', './assets/SniperMonkey.png');
-        this.load.image('spaceship', './assets/spaceship.png');
+        this.load.image('spaceship', './assets/ZOMG.png');
+        this.load.image('spaceship2', './assets/balloon.png');
+        this.load.image('spaceship3', './assets/MOAB.png');
         this.load.image('starfield', './assets/starfield.png');
         // load spritesheet
         this.load.spritesheet('explosion','./assets/explosion.png',{
@@ -39,8 +41,8 @@ class Play extends Phaser.Scene {
 
         // add spaceship (x3)
         this.ship01 = new Spaceship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0.0);
-        this.ship02 = new Spaceship(this, game.config.width + borderUISize * 3, borderUISize * 5 + borderPadding * 2, 'spaceship', 0, 20).setOrigin(0.0);
-        this.ship03 = new Spaceship(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'spaceship', 0, 10).setOrigin(0.0);
+        this.ship02 = new Spaceship(this, game.config.width + borderUISize * 3, borderUISize * 5 + borderPadding * 2, 'spaceship2', 0, 20).setOrigin(0.0);
+        this.ship03 = new Spaceship(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'spaceship3', 0, 10).setOrigin(0.0);
 
 
         // define keys
