@@ -11,6 +11,7 @@ class Play extends Phaser.Scene {
 
         // load images/tile sprites
         this.load.image('rocket', './assets/SniperMonkey.png');
+        this.load.image('dart', './assets/Dart.png');
         this.load.image('spaceship', './assets/ZOMG.png');
         this.load.image('spaceship2', './assets/balloon.png');
         this.load.image('spaceship3', './assets/MOAB.png');
@@ -37,7 +38,9 @@ class Play extends Phaser.Scene {
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0,0);
 
         // add rocket {player 1}
-        this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding - 30, 'rocket').setOrigin(0.5, 0);
+        this.p2Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding - 30, 'dart', true).setOrigin(0.5, 0);
+        this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding - 30, 'rocket', false).setOrigin(0.5, 0);
+        
 
         // add spaceship (x3)
         this.ship01 = new Spaceship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0.0);
