@@ -1,6 +1,6 @@
-class Play extends Phaser.Scene {
+class Play2 extends Phaser.Scene {
     constructor() {
-        super("playScene");
+        super("playScene2");
     }
 
     preload() {
@@ -56,6 +56,7 @@ class Play extends Phaser.Scene {
 
         //console.log("in else");
         this.p1Rocket = new Rocket(this, game.config.width - 120, game.config.height - borderUISize - borderPadding - 30, 'dart', false).setOrigin(0.5, 0);
+        this.p2Rocket = new Rocket2(this, game.config.width- 325, game.config.height - borderUISize - borderPadding - 30, 'dart', false).setOrigin(10, 0);
 
         // add spaceship (x3)
         this.ship01 = new Spaceship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0.0);
@@ -147,6 +148,7 @@ class Play extends Phaser.Scene {
         if(!this.gameOver){
             // update rocket
             this.p1Rocket.update();
+            this.p2Rocket.update();
 
             // update spaceships (x3)
             this.ship01.update();
@@ -167,6 +169,19 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship01);
         }
 
+
+        if(this.checkCollision(this.p2Rocket, this.ship03)){
+            this.p2Rocket.reset();
+            this.shipExplode(this.ship03);
+        }
+        if(this.checkCollision(this.p2Rocket, this.ship02)){
+            this.p2Rocket.reset();
+            this.shipExplode(this.ship02);
+        }
+        if(this.checkCollision(this.p2Rocket, this.ship01)){
+            this.p2Rocket.reset();
+            this.shipExplode(this.ship01);
+        }
     }
 
     checkCollision(rocket, ship){
