@@ -6,8 +6,8 @@ class Play extends Phaser.Scene {
     preload() {
         // load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
-        this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_explosion', './assets/explode.mp3');
+        this.load.audio('sfx_rocket', './assets/whoosh.mp3');
         this.load.audio('sfx_play', './assets/playmusic.wav');
         this.load.image('gameover', './assets/GameOver.png');
 
@@ -15,8 +15,8 @@ class Play extends Phaser.Scene {
         this.load.image('rocket', './assets/SniperMonkey.png');
         this.load.image('dart', './assets/Dart.png');
         this.load.image('spaceship', './assets/ZOMG.png');
-        this.load.image('spaceship2', './assets/balloon.png');
-        this.load.image('spaceship3', './assets/MOAB.png');
+        this.load.image('spaceship2', './assets/MOAB.png');
+        this.load.image('spaceship3', './assets/balloon.png');
         this.load.image('starfield', './assets/background.png');
         // load spritesheet
         this.load.spritesheet('explosion','./assets/explosion.png',{
