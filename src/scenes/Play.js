@@ -8,7 +8,8 @@ class Play extends Phaser.Scene {
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
-        this.load.audio('sfx_play', './assets/playmusic.wav')
+        this.load.audio('sfx_play', './assets/playmusic.wav');
+        this.load.image('gameover', './assets/GameOver.png');
 
         // load images/tile sprites
         this.load.image('rocket', './assets/SniperMonkey.png');
@@ -16,7 +17,7 @@ class Play extends Phaser.Scene {
         this.load.image('spaceship', './assets/ZOMG.png');
         this.load.image('spaceship2', './assets/balloon.png');
         this.load.image('spaceship3', './assets/MOAB.png');
-        this.load.image('starfield', './assets/starfield.png');
+        this.load.image('starfield', './assets/background.png');
         // load spritesheet
         this.load.spritesheet('explosion','./assets/explosion.png',{
             frameWidth: 64,
@@ -44,7 +45,7 @@ class Play extends Phaser.Scene {
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
 
         // green UI background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
+        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0xFBB040).setOrigin(0, 0);
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
@@ -85,8 +86,8 @@ class Play extends Phaser.Scene {
          let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#8DC63F',
+            color: '#FFFFFF',
             align: 'right',
             padding:{
                 top: 5,
@@ -101,8 +102,8 @@ class Play extends Phaser.Scene {
          let timeConfig = {
             fontFamily: 'Courier',
             fontSize: '18px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#8DC63F',
+            color: '#FFFFFF',
             align: 'right',
             padding:{
                 top: 5,
@@ -128,8 +129,9 @@ class Play extends Phaser.Scene {
         // 60 second play clock
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-            this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
-            this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart <- for Menu', scoreConfig).setOrigin(0.5);
+            //this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
+            //this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart <- for Menu', scoreConfig).setOrigin(0.5);
+            this.mainback = this.add.tileSprite(0, 0, 640, 480, 'gameover').setOrigin(0, 0);
             this.gameOver = true;
             this.game.sound.stopAll();
         },null,this);
